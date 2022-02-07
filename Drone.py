@@ -1,4 +1,4 @@
-from djtellopy import tello
+from djitellopy import tello
 import cv2
 import numpy as np
 from time import sleep
