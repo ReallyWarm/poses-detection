@@ -11,11 +11,11 @@ class FPS:
         # Current FPS
         if self.dt % 10 == 0:
             try:
-                self.crnTime = time.time()
+                self.crnTime = time.perf_counter()
                 self.fps = int(10 / (self.crnTime - self.prvTime))
                 self.prvTime = self.crnTime
             except ZeroDivisionError:
-                self.prvTime = time.time()
+                self.prvTime = time.perf_counter()
         self.dt += 1
 
         # FPS history data
@@ -27,4 +27,4 @@ class FPS:
         return int(sum(self.fps_data) / len(self.fps_data))
 
     def draw(self, frame):
-        cv2.putText(frame, f'FPS: {self.getFPS()}', (20, 40), cv2.FONT_HERSHEY_PLAIN, 2, (0, 55, 200), 2)
+        cv2.putText(frame, f'FPS: {self.getFPS()}', (20, 30), cv2.FONT_HERSHEY_DUPLEX, 0.6, (0, 55, 200), 1)

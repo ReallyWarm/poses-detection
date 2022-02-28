@@ -1,4 +1,4 @@
-Tello3.py
-openpose.py
-pose_OP.py
+test.py
+**/img
 **/__pycache__
+**/unused
