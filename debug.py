@@ -9,4 +9,5 @@ def debug(frame, data: list):
     if data:
         for i, v in enumerate(data):
             i += 1
-            cv2.putText(frame, f'{i}: {v}', (20, 20*i + 30), cv2.FONT_HERSHEY_DUPLEX, 0.6, (0, 55, 200), 1)
+            cv2.putText(frame, f'{i}: {v}', (20, 20*i + 30), cv2.FONT_HERSHEY_DUPLEX, 0.6, (0, 0, 0), 2)
+            cv2.putText(frame, f'{i}: {v}', (20, 20*i + 30), cv2.FONT_HERSHEY_DUPLEX, 0.6, (255, 255, 255), 1)

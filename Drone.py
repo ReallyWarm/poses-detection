@@ -4,7 +4,7 @@ import numpy as np
 from time import sleep
 
 me = tello.Tello()
-me.connect()
+me.connect(False)
 print(me.get_battery())
 
 me.takeoff()

@@ -27,4 +27,5 @@ class FPS:
         return int(sum(self.fps_data) / len(self.fps_data))
 
     def draw(self, frame):
+        cv2.putText(frame, f'FPS: {self.getFPS()}', (20, 30), cv2.FONT_HERSHEY_DUPLEX, 0.6, (120, 120, 255), 2)
         cv2.putText(frame, f'FPS: {self.getFPS()}', (20, 30), cv2.FONT_HERSHEY_DUPLEX, 0.6, (0, 55, 200), 1)

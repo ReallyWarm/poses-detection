@@ -68,7 +68,7 @@ def getPoseType(landmarks:list):
 
     pose_angles = [right_shoulder, left_shoulder, right_elbow, left_elbow]
 
-    # Raise both shoulders up.
+    # Lift both shoulders up.
     if 70 < right_shoulder < 110 and 70 < left_shoulder < 110:
 
         if 55 < right_elbow < 95 and 55 < left_elbow < 95:
@@ -77,14 +77,38 @@ def getPoseType(landmarks:list):
         if 155 < right_elbow < 185 and 155 < left_elbow < 185:
             pose_type = "T pose"
         
-    # Raise right shoulder up.
+    # Lift right
     elif 70 < right_shoulder < 110:
         if 55 < right_elbow < 95:
-            pose_type = "Right Up pose"
+            pose_type = "Lifted up right"
 
-    # Raise left shoulder up.
+    # Lift left
     elif 70 < left_shoulder < 110:
         if 55 < left_elbow < 95:
-            pose_type = "Left Up pose"
+            pose_type = "Lifted up left"
+    
+    # Raise both shoulders up.
+    if 155 < right_shoulder < 185 and 155 < left_shoulder < 185:
+        if 155 < right_elbow < 185 and 155 < left_elbow < 185:
+            pose_type = "Raised up"
+
+    # Raise right
+    elif 145 < right_shoulder < 185:
+        if 135 < right_elbow < 170:
+            pose_type = "Raised right"
+
+    # Raise left
+    elif 145 < left_shoulder < 185:
+        if 135 < left_elbow < 170:
+            pose_type = "Raised left"
+
+    # EX
+    if 70 < right_shoulder < 145 and 10 < right_elbow < 50 and\
+       90 < left_shoulder < 140 and 155 < left_elbow < 185:
+        pose_type = "Dab right"
+
+    elif 70 < left_shoulder < 145 and 10 < left_elbow < 50 and\
+         90 < right_shoulder < 140 and 155 < right_elbow < 185:
+        pose_type = "Dab left"
 
     return pose_type, pose_angles
