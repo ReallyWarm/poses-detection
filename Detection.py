@@ -1,7 +1,5 @@
-import math
 import cv2
 import mediapipe as mp 
-import numpy as np
 from poseDetect import poseDetect
 from classifyPose import getPoseType
 from debug import debug
@@ -14,6 +12,7 @@ pose_detection = mp_pose.Pose(model_complexity=1, min_detection_confidence=0.8, 
 CAM_RES = 640 # image resolution
 MODE = 0 # MODE 0 -> Webcam / MODE 1 -> Image
 INFO = range(0) # Range of information for landmarks 
+START_DEBUG = True
 
 def resize_frame(frame, Resolution:int=640):
     '''
@@ -91,7 +90,8 @@ def main_webcam():
 
         # Flip the image then show it
         frame = cv2.flip(frame, 1)
-        debug(frame, debugging)
+        if START_DEBUG:
+            debug(frame, debugging)
         cv2.imshow('MediaPipe Webcam', frame)
 
         # Exit keys as "z", "q" and "ESCAPE"
